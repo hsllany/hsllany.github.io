@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-
-<head>  
+<head>
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -13,16 +12,6 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
-    <script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?12733ea6bc6a81e19ecf8a333be2215e";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
 
     <title>Yang Tao (hsllany)</title>
   </head>
@@ -46,22 +35,17 @@
           All the content are original. Please don't copy without author's permission.
         </div>
         <section>
-          <h1><a href="serializable.html">Object Serializable Design Guide</a></h1>
-          <time>2015-03-7</time>
-          <div class="text">Java & Android Object Serializable Design Guide</div>
-        </section>
-        <section>
-          <h1><a href="interaction-influence.html">交互设计的影响力</a></h1>
-          <time>2014-03-11</time>
-          <div class="text">每隔一段时间，一些交互设计团队内部就会讨论这个问题：<b>如何提升设计师的影响力</b>。大家众说纷纭，那我也来聊聊我的点滴看法</div>
-        </section>
-        <section>
-          <h1><a href="how-to-be-interaction-designer.html">非科班出身如何成为 UI 设计师？</a></h1>
-          <time>2014-02-14</time>
-          <div class="text"><a href="http://www.zhihu.com/question/21273315/answer/17733283">知乎问题：非科班出身如何成为 UI 设计师？</a></div>
-        </section>
+          <nav><a href="index.html">首页 <- </a></nav>
+          <h1><a href="#">Object Serializable Design Guide</a></h1>
+          <time>2015-03-09</time>
+          <div class="text">
+            <p>1. 避免Serialize Inner Class, 见oracle文档：“Serialization of inner classes (i.e., nested classes that are not static member classes), including local and anonymous classes, <b>is strongly discouraged for several reasons. </b>Because inner classes declared in non-static contexts contain implicit non-transient references to enclosing class instances, serializing such an inner class instance will result in serialization of its associated outer class instance as well. ”;</p>
+            <p>2. 所有的non-static或none-transient非基本类型域, 都应该implements Serializable;</p>
+            <p>3. 明确使用private final static关键字，指定serialVersionUID。如果不指定，不同虚拟机可能计算出不同默认serialVersionUID, 产生难以意料的问题</p>
+            <p>4. new versions of Serializable classes may or may not be able to read old serialized objects; it depend on the nature of the changes. 见：<a href="http://docs.oracle.com/javase/7/docs/platform/serialization/spec/version.html#6678">Type Changes Affecting Serialization</a></p>
 
-       
+          </div>
+        </section>
         <div class="clear"></div>
       </div>
 
